@@ -41,16 +41,18 @@
 
 	// Use 'postCreateCommand' to run commands after the container is created.
 	// "postCreateCommand": "uname -a",
-    "mounts": [
-        "source=tensorflow_cache,target=/home/vscode/.cache/bazel/"
-      ],
+    	"mounts": [
+        	"source=tensorflow_cache,target=/home/vscode/.cache/bazel/"
+      	],
 
 	// Uncomment when using a ptrace-based debugger like C++, Go, and Rust
 	"runArgs": [ 
 		"--cap-add=SYS_PTRACE",
 		// Uncomment this to enable Nvidia support
 		//"--runtime=nvidia",
-		"--security-opt",
-		"seccomp=unconfined" ],
+		// Uncomment the next two lines for ptrace debugger and Docker < 1.13
+		//"--security-opt",
+		//"seccomp=unconfined" 
+	],
 	"remoteUser": "vscode"
 }
